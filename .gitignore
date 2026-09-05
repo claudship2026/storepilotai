@@ -1,0 +1,14 @@
+node_modules
+.next
+out
+build
+.env
+.env.local
+.env*.local
+!.env.example
+*.log
+.DS_Store
+.vercel
+next-env.d.ts
+tsconfig.tsbuildinfo
+drizzle/meta/_journal.json.bak
