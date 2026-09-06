@@ -11,7 +11,10 @@ declare global {
 const client =
   globalThis.__storepilot_sql ??
   postgres(env().DATABASE_URL, {
-    max: 10,
+      // Serverless: each instance gets its own pool, so one connection per
+      // instance is correct. Anything higher multiplies across concurrent
+      // instances and exhausts the pooler.
+      max: 1,
     idle_timeout: 20,
     prepare: false,
   });
